@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Charlady - Coming Soon</title>
+    
+    <!-- Add favicon links -->
+    <link rel="icon" type="image/png" href="charlady-logo.png">
+    <link rel="apple-touch-icon" href="charlady-logo.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F8E8FF, #E6E6FA);
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #663399;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .launch-date {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            color: #666;
+            font-style: italic;
+        }
+
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, #9370DB, #663399);
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 120px;
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .countdown-label {
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            margin-top: 5px;
+        }
+
+        .about {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(147, 112, 219, 0.3);
+        }
+
+        .about h2 {
+            color: #663399;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .about p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .email-signup {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .book-space-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #9370DB, #663399);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
+            text-decoration: none;
+        }
+
+        .book-space-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(147, 112, 219, 0.4);
+            background: linear-gradient(135deg, #663399, #4B0082);
+        }
+
+        input[type="email"] {
+            padding: 15px 25px;
+            border: 2px solid #9370DB;
+            border-radius: 30px;
+            margin-right: 10px;
+            width: 300px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #663399;
+            box-shadow: 0 0 10px rgba(147, 112, 219, 0.2);
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #9370DB, #663399);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(147, 112, 219, 0.4);
+            background: linear-gradient(135deg, #663399, #4B0082);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container > * {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .about-content {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(147, 112, 219, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.2);
+        }
+
+        .about-section h3 {
+            color: #663399;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .about-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .features-list, .benefits-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features-list li, .benefits-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .features-list li:before, .benefits-list li:before {
+            position: absolute;
+            left: 0;
+        }
+
+        .features-list li {
+            color: #666;
+        }
+
+        .benefits-list li {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .launch-date {
+                font-size: 1.2em;
+                margin-bottom: 30px;
+            }
+
+            #countdown {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .countdown-item {
+                min-width: calc(50% - 15px);
+                padding: 15px;
+            }
+
+            .countdown-number {
+                font-size: 2em;
+            }
+
+            .countdown-label {
+                font-size: 0.8em;
+            }
+
+            .about {
+                padding: 20px;
+                margin-top: 30px;
+            }
+
+            .about h2 {
+                font-size: 1.8em;
+            }
+
+            .about-section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .about-section h3 {
+                font-size: 1.3em;
+            }
+
+            .about-section p {
+                font-size: 0.95em;
+                line-height: 1.6;
+            }
+
+            .features-list li, 
+            .benefits-list li {
+                font-size: 0.9em;
+                padding-left: 20px;
+                margin-bottom: 10px;
+            }
+
+            .email-signup {
+                margin-top: 30px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            input[type="email"] {
+                width: 100%;
+                padding: 12px 20px;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            button,
+            .book-space-btn {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .logo {
+                max-width: 150px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 375px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .countdown-item {
+                min-width: calc(50% - 10px);
+                padding: 10px;
+            }
+
+            .countdown-number {
+                font-size: 1.8em;
+            }
+
+            .about-section {
+                padding: 12px;
+            }
+
+            .features-list li, 
+            .benefits-list li {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Landscape orientation */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                padding: 15px;
+            }
+
+            #countdown {
+                margin-bottom: 20px;
+            }
+
+            .about {
+                margin-top: 20px;
+            }
+
+            .about-section {
+                margin-bottom: 15px;
+            }
+
+            .logo {
+                max-width: 100px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Fix for notched phones */
+        @supports (padding: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .about-section {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .features-list li, 
+            .benefits-list li {
+                color: #444;
+            }
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Update Partners Section Styles */
+        .partners {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 1px solid rgba(147, 112, 219, 0.2);
+        }
+
+        .partners h2 {
+            color: #663399;
+            margin-bottom: 30px;
+            font-size: 2em;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .partner-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .partner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(147, 112, 219, 0.2);
+        }
+
+        .partner-item p {
+            margin-top: 10px;
+            color: #663399;
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+
+        .partner-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 50%;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(147, 112, 219, 0.15);
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile responsiveness for partners section */
+        @media (max-width: 768px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .partner-item {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .partner-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .partner-item p {
+                font-size: 1em;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 375px) {
+            .partner-logo {
+                width: 100px;
+                height: 100px;
+                padding: 10px;
+            }
+
+            .partner-item p {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Add Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Add logo -->
+        <div class="logo">
+            <img src="charlady-logo.png" alt="Charlady Logo">
+        </div>
+        
+        <h1>Coming Soon</h1>
+        <p class="launch-date">Official Launch: April 1, 2025</p>
+
+        <div id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <div class="partners">
+            <h2>Our Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-item">
+                    <img src="kenya-coat.png" alt="Republic of Kenya" class="partner-logo">
+                    <p>Government of Kenya</p>
+                </div>
+                <div class="partner-item">
+                    <img src="nairobi-county.png" alt="Nairobi County" class="partner-logo">
+                    <p>Nairobi County</p>
+                </div>
+                <div class="partner-item">
+                    <img src="morggy-tech.jpg" alt="Morggy Technologies" class="partner-logo">
+                    <p>Morggy Technologies</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <section class="about-section">
+                    <h3>About Charlady</h3>
+                    <p>Charlady is a specialized online platform connecting Kenyan housekeepers, nannies, and domestic workers with employers seeking reliable household assistance. Designed with a user-friendly approach, Charlady ensures a seamless experience for both job seekers and employers while maintaining high standards of professionalism and trust.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Our Mission</h3>
+                    <p>To bridge the gap between households and skilled domestic workers by offering a secure and efficient job-matching platform that enhances employment opportunities and household management.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Our Vision</h3>
+                    <p>To become Kenya's most trusted and efficient platform for hiring domestic workers, ensuring professionalism, safety, and convenience for all users.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Key Features</h3>
+                    <ul class="features-list">
+                        <li>✔ Worker Profiles & Job Applications – Nannies and housekeepers create detailed profiles and apply for jobs.</li>
+                        <li>✔ Employer Job Postings – Households post job openings with salary details, location, and requirements.</li>
+                        <li>✔ Manual Verification – Admin manually verifies workers and job postings before they go live.</li>
+                        <li>✔ Dashboard for Users – Employers and workers track applications, job postings, and payments.</li>
+                        <li>✔ Secure Payment & Contracts – Workers pay a membership fee for verification and receive access to contract terms.</li>
+                        <li>✔ Ratings & Reviews – Employers can rate workers based on performance, creating a transparent system.</li>
+                        <li>✔ Mobile-Friendly & Elegant UI – Designed with a feminine touch using high-quality visuals and smooth UX/UI.</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>Why Choose Charlady?</h3>
+                    <ul class="benefits-list">
+                        <li>✅ Trusted & Verified Workers – Each worker goes through a verification process before being listed.</li>
+                        <li>✅ Seamless Hiring Process – Employers find housekeepers easily without the hassle of agencies.</li>
+                        <li>✅ Transparent Ratings & Reviews – No moderation, ensuring honest employer and worker feedback.</li>
+                        <li>✅ Secure & Professional Platform – No direct communication outside the platform, ensuring a controlled hiring process.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <div class="email-signup">
+            <div class="button-group">
+                <input type="email" placeholder="Enter your email for updates">
+                <button onclick="notifyMe()">Notify Me</button>
+                <a href="mailto:info@charlady.online?subject=Book%20a%20Space%20on%20Charlady&body=I%20would%20like%20to%20book%20a%20space%20on%20Charlady%20before%20the%20official%20launch." class="book-space-btn">Book a Space</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update countdown function to ensure it starts immediately
+        function updateCountdown() {
+            const launchDate = new Date(2025, 3, 1, 0, 0).getTime(); // April 1, 2025
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            // Calculate time units
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update DOM elements with animation
+            animateValue('days', days);
+            animateValue('hours', hours);
+            animateValue('minutes', minutes);
+            animateValue('seconds', seconds);
+
+            // Check if countdown is finished
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = "We're Live!";
+            }
+        }
+
+        // Ensure immediate start of countdown
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        function animateValue(elementId, value) {
+            const element = document.getElementById(elementId);
+            const current = parseInt(element.innerHTML);
+            const formatted = String(value).padStart(2, '0');
+            
+            if (current !== value) {
+                element.style.transform = 'translateY(-20px)';
+                element.style.opacity = '0';
+                
+                setTimeout(() => {
+                    element.innerHTML = formatted;
+                    element.style.transform = 'translateY(0)';
+                    element.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        function notifyMe() {
+            const email = document.querySelector('input[type="email"]').value;
+            if (email && email.includes('@')) {
+                const button = document.querySelector('button');
+                button.innerHTML = '✓ Thank You!';
+                button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                setTimeout(() => {
+                    button.innerHTML = 'Notify Me';
+                    button.style.background = 'linear-gradient(135deg, #9370DB, #663399)';
+                }, 2000);
+                document.querySelector('input[type="email"]').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
+</body>
+</html>
