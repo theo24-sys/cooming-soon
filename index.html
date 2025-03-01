@@ -18,7 +18,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #FFE5E5, #FFB6C1);
+            background: linear-gradient(135deg, #F8E8FF, #E6E6FA);
             color: #4a4a4a;
             min-height: 100vh;
             display: flex;
@@ -35,15 +35,16 @@
             background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.2);
         }
 
         h1 {
             font-size: 3.5em;
             margin-bottom: 20px;
-            color: #FF69B4;
+            color: #663399;
             font-weight: 700;
             letter-spacing: 2px;
+            animation: fadeInDown 1s ease-out;
         }
 
         .launch-date {
@@ -61,11 +62,11 @@
         }
 
         .countdown-item {
-            background: linear-gradient(135deg, #FFC0CB, #FFB6C1);
+            background: linear-gradient(135deg, #9370DB, #663399);
             padding: 25px;
             border-radius: 15px;
             min-width: 120px;
-            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
             transition: transform 0.3s ease;
         }
 
@@ -100,11 +101,11 @@
             padding: 40px;
             border-radius: 20px;
             margin-top: 40px;
-            border: 1px solid rgba(255, 182, 193, 0.3);
+            border: 1px solid rgba(147, 112, 219, 0.3);
         }
 
         .about h2 {
-            color: #FF69B4;
+            color: #663399;
             margin-bottom: 20px;
             font-size: 2em;
         }
@@ -133,26 +134,26 @@
             padding: 15px 30px;
             border: none;
             border-radius: 30px;
-            background: linear-gradient(135deg, #4CAF50, #45a049);
+            background: linear-gradient(135deg, #9370DB, #663399);
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
             text-decoration: none;
         }
 
         .book-space-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(76, 175, 80, 0.4);
-            background: linear-gradient(135deg, #45a049, #388E3C);
+            box-shadow: 0 7px 20px rgba(147, 112, 219, 0.4);
+            background: linear-gradient(135deg, #663399, #4B0082);
         }
 
         input[type="email"] {
             padding: 15px 25px;
-            border: 2px solid #FFB6C1;
+            border: 2px solid #9370DB;
             border-radius: 30px;
             margin-right: 10px;
             width: 300px;
@@ -162,28 +163,28 @@
 
         input[type="email"]:focus {
             outline: none;
-            border-color: #FF69B4;
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+            border-color: #663399;
+            box-shadow: 0 0 10px rgba(147, 112, 219, 0.2);
         }
 
         button {
             padding: 15px 30px;
             border: none;
             border-radius: 30px;
-            background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+            background: linear-gradient(135deg, #9370DB, #663399);
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(255, 105, 180, 0.4);
-            background: linear-gradient(135deg, #FF1493, #FF69B4);
+            box-shadow: 0 7px 20px rgba(147, 112, 219, 0.4);
+            background: linear-gradient(135deg, #663399, #4B0082);
         }
 
         @keyframes fadeIn {
@@ -206,17 +207,17 @@
             padding: 20px;
             background: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
-            border: 1px solid rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(147, 112, 219, 0.2);
             transition: transform 0.3s ease;
         }
 
         .about-section:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.2);
         }
 
         .about-section h3 {
-            color: #FF69B4;
+            color: #663399;
             margin-bottom: 15px;
             font-size: 1.5em;
             font-weight: 600;
@@ -430,6 +431,132 @@
             width: 100%;
             height: auto;
         }
+
+        /* Update Partners Section Styles */
+        .partners {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 1px solid rgba(147, 112, 219, 0.2);
+        }
+
+        .partners h2 {
+            color: #663399;
+            margin-bottom: 30px;
+            font-size: 2em;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .partner-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .partner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(147, 112, 219, 0.2);
+        }
+
+        .partner-item p {
+            margin-top: 10px;
+            color: #663399;
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+
+        .partner-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 50%;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(147, 112, 219, 0.15);
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile responsiveness for partners section */
+        @media (max-width: 768px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .partner-item {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .partner-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .partner-item p {
+                font-size: 1em;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 375px) {
+            .partner-logo {
+                width: 100px;
+                height: 100px;
+                padding: 10px;
+            }
+
+            .partner-item p {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Add Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -459,6 +586,24 @@
             <div class="countdown-item">
                 <div class="countdown-number" id="seconds">00</div>
                 <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <div class="partners">
+            <h2>Our Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-item">
+                    <img src="kenya-coat.png" alt="Republic of Kenya" class="partner-logo">
+                    <p>Government of Kenya</p>
+                </div>
+                <div class="partner-item">
+                    <img src="nairobi-county.png" alt="Nairobi County" class="partner-logo">
+                    <p>Nairobi County</p>
+                </div>
+                <div class="partner-item">
+                    <img src="morggy-tech.jpg" alt="Morggy Technologies" class="partner-logo">
+                    <p>Morggy Technologies</p>
+                </div>
             </div>
         </div>
 
@@ -569,7 +714,7 @@
                 button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
                 setTimeout(() => {
                     button.innerHTML = 'Notify Me';
-                    button.style.background = 'linear-gradient(135deg, #FF69B4, #FFB6C1)';
+                    button.style.background = 'linear-gradient(135deg, #9370DB, #663399)';
                 }, 2000);
                 document.querySelector('input[type="email"]').value = '';
             } else {
