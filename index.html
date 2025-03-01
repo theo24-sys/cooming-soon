@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFE5E5, #FFB6C1);
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #FF69B4;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .launch-date {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            color: #666;
+            font-style: italic;
+        }
+
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, #FFC0CB, #FFB6C1);
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 120px;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .countdown-label {
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            margin-top: 5px;
+        }
+
+        .about {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .about h2 {
+            color: #FF69B4;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .about p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .email-signup {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .book-space-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            text-decoration: none;
+        }
+
+        .book-space-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(135deg, #45a049, #388E3C);
+        }
+
+        input[type="email"] {
+            padding: 15px 25px;
+            border: 2px solid #FFB6C1;
+            border-radius: 30px;
+            margin-right: 10px;
+            width: 300px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #FF69B4;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 105, 180, 0.4);
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container > * {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Coming Soon</h1>
+        <p class="launch-date">Official Launch: April 1, 2025</p>
+
+        <div id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2>About Us</h2>
+            <p>About Charlady
+                Charlady is a specialized online platform connecting Kenyan housekeepers, nannies, and domestic workers with employers seeking reliable household assistance. Designed with a user-friendly approach, Charlady ensures a seamless experience for both job seekers and employers while maintaining high standards of professionalism and trust.
+                
+                Our Mission
+                To bridge the gap between households and skilled domestic workers by offering a secure and efficient job-matching platform that enhances employment opportunities and household management.
+                
+                Our Vision
+                To become Kenya's most trusted and efficient platform for hiring domestic workers, ensuring professionalism, safety, and convenience for all users.
+                
+                Key Features
+                ✔ Worker Profiles & Job Applications – Nannies and housekeepers create detailed profiles and apply for jobs.
+                ✔ Employer Job Postings – Households post job openings with salary details, location, and requirements.
+                ✔ Manual Verification – Admin manually verifies workers and job postings before they go live.
+                ✔ Dashboard for Users – Employers and workers track applications, job postings, and payments.
+                ✔ Secure Payment & Contracts – Workers pay a membership fee for verification and receive access to contract terms.
+                ✔ Ratings & Reviews – Employers can rate workers based on performance, creating a transparent system.
+                ✔ Mobile-Friendly & Elegant UI – Designed with a feminine touch using high-quality visuals and smooth UX/UI.
+                
+                Why Choose Charlady?
+                ✅ Trusted & Verified Workers – Each worker goes through a verification process before being listed.
+                ✅ Seamless Hiring Process – Employers find housekeepers easily without the hassle of agencies.
+                ✅ Transparent Ratings & Reviews – No moderation, ensuring honest employer and worker feedback.
+                ✅ Secure & Professional Platform – No direct communication outside the platform, ensuring a controlled hiring process.</p>
+        </div>
+
+        <div class="email-signup">
+            <div class="button-group">
+                <input type="email" placeholder="Enter your email for updates">
+                <button onclick="notifyMe()">Notify Me</button>
+                <a href="mailto:info@charlady.online?subject=Book%20a%20Space%20on%20Charlady&body=I%20would%20like%20to%20book%20a%20space%20on%20Charlady%20before%20the%20official%20launch." class="book-space-btn">Book a Space</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the launch date (Year, Month[0-11], Day, Hour, Minute)
+        const launchDate = new Date(2025, 3, 1, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Animate number changes
+            animateValue('days', days);
+            animateValue('hours', hours);
+            animateValue('minutes', minutes);
+            animateValue('seconds', seconds);
+        }
+
+        function animateValue(elementId, value) {
+            const element = document.getElementById(elementId);
+            const current = parseInt(element.innerHTML);
+            const formatted = String(value).padStart(2, '0');
+            
+            if (current !== value) {
+                element.style.transform = 'translateY(-20px)';
+                element.style.opacity = '0';
+                
+                setTimeout(() => {
+                    element.innerHTML = formatted;
+                    element.style.transform = 'translateY(0)';
+                    element.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        function notifyMe() {
+            const email = document.querySelector('input[type="email"]').value;
+            if (email && email.includes('@')) {
+                const button = document.querySelector('button');
+                button.innerHTML = '✓ Thank You!';
+                button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                setTimeout(() => {
+                    button.innerHTML = 'Notify Me';
+                    button.style.background = 'linear-gradient(135deg, #FF69B4, #FFB6C1)';
+                }, 2000);
+                document.querySelector('input[type="email"]').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+        <div class="email-signup">
+            <div class="button-group">
+                <input type="email" placeholder="Enter your email for updates" />
+                <button onclick="notifyMe()">Notify Me</button>
+                <a href="mailto:info@charlady.online?subject=Book%20a%20Space%20on%20Charlady&body=I%20would%20like%20to%20book%20a%20space%20on%20Charlady%20before%20the%20official%20launch." class="book-space-btn">Book a Space</a>
+            </div>
+        </div>
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
