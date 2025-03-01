@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Charlady - Coming Soon</title>
+    
+    <!-- Add favicon links -->
+    <link rel="icon" type="image/png" href="charlady-logo.png">
+    <link rel="apple-touch-icon" href="charlady-logo.png">
+    
     <style>
         * {
             margin: 0;
@@ -189,11 +194,252 @@
         .container > * {
             animation: fadeIn 1s ease-out forwards;
         }
+
+        .about-content {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+        }
+
+        .about-section h3 {
+            color: #FF69B4;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .about-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .features-list, .benefits-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features-list li, .benefits-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .features-list li:before, .benefits-list li:before {
+            position: absolute;
+            left: 0;
+        }
+
+        .features-list li {
+            color: #666;
+        }
+
+        .benefits-list li {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .launch-date {
+                font-size: 1.2em;
+                margin-bottom: 30px;
+            }
+
+            #countdown {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .countdown-item {
+                min-width: calc(50% - 15px);
+                padding: 15px;
+            }
+
+            .countdown-number {
+                font-size: 2em;
+            }
+
+            .countdown-label {
+                font-size: 0.8em;
+            }
+
+            .about {
+                padding: 20px;
+                margin-top: 30px;
+            }
+
+            .about h2 {
+                font-size: 1.8em;
+            }
+
+            .about-section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .about-section h3 {
+                font-size: 1.3em;
+            }
+
+            .about-section p {
+                font-size: 0.95em;
+                line-height: 1.6;
+            }
+
+            .features-list li, 
+            .benefits-list li {
+                font-size: 0.9em;
+                padding-left: 20px;
+                margin-bottom: 10px;
+            }
+
+            .email-signup {
+                margin-top: 30px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            input[type="email"] {
+                width: 100%;
+                padding: 12px 20px;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            button,
+            .book-space-btn {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .logo {
+                max-width: 150px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 375px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .countdown-item {
+                min-width: calc(50% - 10px);
+                padding: 10px;
+            }
+
+            .countdown-number {
+                font-size: 1.8em;
+            }
+
+            .about-section {
+                padding: 12px;
+            }
+
+            .features-list li, 
+            .benefits-list li {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Landscape orientation */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                padding: 15px;
+            }
+
+            #countdown {
+                margin-bottom: 20px;
+            }
+
+            .about {
+                margin-top: 20px;
+            }
+
+            .about-section {
+                margin-bottom: 15px;
+            }
+
+            .logo {
+                max-width: 100px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Fix for notched phones */
+        @supports (padding: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .about-section {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .features-list li, 
+            .benefits-list li {
+                color: #444;
+            }
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <!-- Add logo -->
+        <div class="logo">
+            <img src="charlady-logo.png" alt="Charlady Logo">
+        </div>
+        
         <h1>Coming Soon</h1>
         <p class="launch-date">Official Launch: April 1, 2025</p>
 
@@ -218,29 +464,45 @@
 
         <div class="about">
             <h2>About Us</h2>
-            <p>About Charlady
-                Charlady is a specialized online platform connecting Kenyan housekeepers, nannies, and domestic workers with employers seeking reliable household assistance. Designed with a user-friendly approach, Charlady ensures a seamless experience for both job seekers and employers while maintaining high standards of professionalism and trust.
-                
-                Our Mission
-                To bridge the gap between households and skilled domestic workers by offering a secure and efficient job-matching platform that enhances employment opportunities and household management.
-                
-                Our Vision
-                To become Kenya's most trusted and efficient platform for hiring domestic workers, ensuring professionalism, safety, and convenience for all users.
-                
-                Key Features
-                ✔ Worker Profiles & Job Applications – Nannies and housekeepers create detailed profiles and apply for jobs.
-                ✔ Employer Job Postings – Households post job openings with salary details, location, and requirements.
-                ✔ Manual Verification – Admin manually verifies workers and job postings before they go live.
-                ✔ Dashboard for Users – Employers and workers track applications, job postings, and payments.
-                ✔ Secure Payment & Contracts – Workers pay a membership fee for verification and receive access to contract terms.
-                ✔ Ratings & Reviews – Employers can rate workers based on performance, creating a transparent system.
-                ✔ Mobile-Friendly & Elegant UI – Designed with a feminine touch using high-quality visuals and smooth UX/UI.
-                
-                Why Choose Charlady?
-                ✅ Trusted & Verified Workers – Each worker goes through a verification process before being listed.
-                ✅ Seamless Hiring Process – Employers find housekeepers easily without the hassle of agencies.
-                ✅ Transparent Ratings & Reviews – No moderation, ensuring honest employer and worker feedback.
-                ✅ Secure & Professional Platform – No direct communication outside the platform, ensuring a controlled hiring process.</p>
+            <div class="about-content">
+                <section class="about-section">
+                    <h3>About Charlady</h3>
+                    <p>Charlady is a specialized online platform connecting Kenyan housekeepers, nannies, and domestic workers with employers seeking reliable household assistance. Designed with a user-friendly approach, Charlady ensures a seamless experience for both job seekers and employers while maintaining high standards of professionalism and trust.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Our Mission</h3>
+                    <p>To bridge the gap between households and skilled domestic workers by offering a secure and efficient job-matching platform that enhances employment opportunities and household management.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Our Vision</h3>
+                    <p>To become Kenya's most trusted and efficient platform for hiring domestic workers, ensuring professionalism, safety, and convenience for all users.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Key Features</h3>
+                    <ul class="features-list">
+                        <li>✔ Worker Profiles & Job Applications – Nannies and housekeepers create detailed profiles and apply for jobs.</li>
+                        <li>✔ Employer Job Postings – Households post job openings with salary details, location, and requirements.</li>
+                        <li>✔ Manual Verification – Admin manually verifies workers and job postings before they go live.</li>
+                        <li>✔ Dashboard for Users – Employers and workers track applications, job postings, and payments.</li>
+                        <li>✔ Secure Payment & Contracts – Workers pay a membership fee for verification and receive access to contract terms.</li>
+                        <li>✔ Ratings & Reviews – Employers can rate workers based on performance, creating a transparent system.</li>
+                        <li>✔ Mobile-Friendly & Elegant UI – Designed with a feminine touch using high-quality visuals and smooth UX/UI.</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>Why Choose Charlady?</h3>
+                    <ul class="benefits-list">
+                        <li>✅ Trusted & Verified Workers – Each worker goes through a verification process before being listed.</li>
+                        <li>✅ Seamless Hiring Process – Employers find housekeepers easily without the hassle of agencies.</li>
+                        <li>✅ Transparent Ratings & Reviews – No moderation, ensuring honest employer and worker feedback.</li>
+                        <li>✅ Secure & Professional Platform – No direct communication outside the platform, ensuring a controlled hiring process.</li>
+                    </ul>
+                </section>
+            </div>
         </div>
 
         <div class="email-signup">
@@ -253,24 +515,34 @@
     </div>
 
     <script>
-        // Set the launch date (Year, Month[0-11], Day, Hour, Minute)
-        const launchDate = new Date(2025, 3, 1, 0, 0).getTime();
-
+        // Update countdown function to ensure it starts immediately
         function updateCountdown() {
+            const launchDate = new Date(2025, 3, 1, 0, 0).getTime(); // April 1, 2025
             const now = new Date().getTime();
             const distance = launchDate - now;
 
+            // Calculate time units
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Animate number changes
+            // Update DOM elements with animation
             animateValue('days', days);
             animateValue('hours', hours);
             animateValue('minutes', minutes);
             animateValue('seconds', seconds);
+
+            // Check if countdown is finished
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = "We're Live!";
+            }
         }
+
+        // Ensure immediate start of countdown
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
 
         function animateValue(elementId, value) {
             const element = document.getElementById(elementId);
@@ -304,16 +576,6 @@
                 alert('Please enter a valid email address.');
             }
         }
-        <div class="email-signup">
-            <div class="button-group">
-                <input type="email" placeholder="Enter your email for updates" />
-                <button onclick="notifyMe()">Notify Me</button>
-                <a href="mailto:info@charlady.online?subject=Book%20a%20Space%20on%20Charlady&body=I%20would%20like%20to%20book%20a%20space%20on%20Charlady%20before%20the%20official%20launch." class="book-space-btn">Book a Space</a>
-            </div>
-        </div>
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
     </script>
 </body>
 </html>
